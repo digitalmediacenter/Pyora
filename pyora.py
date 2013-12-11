@@ -347,6 +347,13 @@ class Checks(object):
 		for i in res:
 			print i[1]
 
+	def tsusagemetric(self, name):
+		sql = "SELECT ROUND(used_percent, 2) FROM dba_tablespace_usage_metrics WHERE tablespace_name='{0}'".format(name)
+		self.cur.execute(sql)
+		res = self.cur.fetchall()
+		for i in res:
+		print i[0]
+
 	def show_tablespaces(self):
 		'''List tablespace names in a JSON like format for Zabbix use'''
 		sql = "SELECT tablespace_name FROM dba_tablespaces ORDER BY 1";
