@@ -352,7 +352,7 @@ class Checks(object):
 		self.cur.execute(sql)
 		res = self.cur.fetchall()
 		for i in res:
-		print i[0]
+			print i[0]
 
 	def show_tablespaces(self):
 		'''List tablespace names in a JSON like format for Zabbix use'''
