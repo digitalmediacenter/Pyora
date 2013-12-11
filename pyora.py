@@ -448,7 +448,7 @@ class Checks(object):
 
 	def fra_use(self):
 		'''Query the Fast Recovery Area usage'''
-		sql = "select round((SPACE_LIMIT-(SPACE_LIMIT-SPACE_USED))/SPACE_LIMIT*100,2) FROM V$RECOVERY_FILE_DEST"
+		sql = "select round(SPACE_USED/SPACE_LIMIT*100,2) FROM V$RECOVERY_FILE_DEST"
                 self.cur.execute(sql)
                 res = self.cur.fetchall()
                 for i in res:
